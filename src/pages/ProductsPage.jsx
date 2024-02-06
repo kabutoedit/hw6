@@ -5,27 +5,20 @@ import { addBasket, marketAction } from '../store/action.js'
 const ProductsPage = () => {
 	const dispatch = useDispatch()
 	const getPost = useSelector(state => state.marketState.post)
-	console.log(getPost)
 
-	const handleClick = selectProduct => {
-		console.log(selectProduct)
-		dispatch(addBasket({ selectProduct }))
+	const handleClick = product => {
+		dispatch(addBasket({ product })), dispatch(marketAction({ product }))
 	}
 
 	return (
 		<div>
-			{getPost.map(
-				item => (
-					(
-						<div className={'product'} key={item._id}>
-							<span>{item.name}</span>
-							<span>{item.price}</span>
-							<button onClick={() => handleClick(item)}>BUY</button>
-						</div>
-					),
-					console.log(item)
-				)
-			)}
+			{getPost.map(item => (
+				<div className={'product'}>
+					<span>{item.name}</span>
+					<span>{item.price}</span>
+					<button onClick={() => handleClick(item)}>BUY</button>
+				</div>
+			))}
 		</div>
 	)
 }

@@ -9,12 +9,13 @@ const initialState = {
 export const addBasket = (state = initialState, action) => {
 	switch (action.type) {
 		case 'AddBasket':
-			console.log(action.payload)
 			return {
 				...state,
 				basketProducts: [...state.basketProducts, action.payload],
+
 			}
-			break
+		default:
+			return state
 	}
 }
 

@@ -5,13 +5,8 @@ import { marketAction } from '../store/action.js'
 
 const NavBar = () => {
 	const count = useSelector(state => state.marketState.counter)
-	// console.log(count)
-	const dispatch = useDispatch()
 
-	// useEffect(() => {
-	//     dispatch(marketAction())
-	// },[dispatch])
-
+	
 	return (
 		<nav>
 			<ul>
